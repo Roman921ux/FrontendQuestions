@@ -15,10 +15,10 @@ interface Props {
 const QuestionItem = observer(({ item }: Props) => {
   const { user, question } = useStores()
   const [open, setOpen] = useState<boolean>(false)
-  const [click, setClick] = useState({
-    left: 0,
-    right: 0
-  })
+  // const [click, setClick] = useState({
+  //   left: 0,
+  //   right: 0
+  // })
   useEffect(() => {
     const a = item.voted.find(q => q.user === user.user?._id)
     if (a) {
