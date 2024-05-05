@@ -8,15 +8,13 @@ import NotFoundPage from './pages/NotFoundPage'
 import UserQuestionsPage from './pages/UserQuestionsPage'
 import LoginPage from './pages/auth/LoginPage'
 import RegisterPage from './pages/auth/RegisterPage'
-import { RootStoreContext, useStores } from './root-store-context'
+import { RootStoreContext } from './root-store-context'
 import RootStore from './store/root-store'
 import AuthRequire from './pages/auth/AuthRequire'
 import CreateQPage from './pages/CreateQPage'
 import RoleRequire from './pages/auth/RoleRequire'
-import { observer } from 'mobx-react-lite'
-import { useEffect } from 'react'
 
-const App = observer(() => {
+function App() {
   return (
     <RootStoreContext.Provider value={new RootStore()}>
       <Container>
@@ -47,7 +45,7 @@ const App = observer(() => {
       </Container>
     </RootStoreContext.Provider>
   )
-})
+}
 
 export default App
 
