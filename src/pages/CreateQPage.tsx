@@ -46,6 +46,7 @@ const CreateQPage = observer(() => {
       .then(res => {
         console.log(res)
         alert('Вопрос добавлен')
+        question.loadQuestions()
       })
       .catch(err => {
         console.log(err)
