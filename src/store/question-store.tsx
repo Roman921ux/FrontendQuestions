@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { makeAutoObservable } from 'mobx'
-import { isHtmlElement } from 'react-router-dom/dist/dom';
 
 export interface IQuestions {
   _id?: string;

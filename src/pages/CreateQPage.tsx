@@ -43,8 +43,14 @@ const CreateQPage = observer(() => {
     console.log('formData', updatedFormData);
     const token = user.token
     question.createQuestion({ token, body: updatedFormData })
-      .then(res => alert('Вопрос добавлен'))
-      .catch(err => alert('Ошибка при создании вопроса'))
+      .then(res => {
+        console.log(res)
+        alert('Вопрос добавлен')
+      })
+      .catch(err => {
+        console.log(err)
+        alert('Ошибка при создании вопроса')
+      })
   };
 
   const [value, setValue] = useState("Initial value");

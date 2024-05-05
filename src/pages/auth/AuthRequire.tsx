@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { useStores } from '../../root-store-context';
 import { Navigate } from 'react-router-dom';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;

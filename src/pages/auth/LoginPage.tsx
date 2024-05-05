@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, ChangeEvent } from 'react';
+import { FormEvent, useState, ChangeEvent } from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { useStores } from '../../root-store-context';
@@ -29,7 +29,10 @@ const LoginPage = observer(() => {
         console.log('Login IN', res);
         redirect('/profile')
       })
-      .catch(err => alert('Ошибка при авторизации'))
+      .catch(err => {
+        console.log(err)
+        alert('Ошибка при авторизации')
+      })
   };
 
   return (

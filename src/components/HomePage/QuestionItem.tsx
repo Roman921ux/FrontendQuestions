@@ -44,8 +44,14 @@ const QuestionItem = observer(({ item }: Props) => {
           action: "increment"
         }
         question.resetRating(objBody)
-          .then(res => question.loadQuestions())
-          .catch(err => alert('Ошибка1'))
+          .then(res => {
+            console.log(res)
+            question.loadQuestions()
+          })
+          .catch(err => {
+            console.log(err)
+            alert('Ошибка1')
+          })
       } else if (votedObj.btn.left === 1 && votedObj.btn.right === 0) {
         const objBody = {
           token: user.token,
@@ -55,8 +61,14 @@ const QuestionItem = observer(({ item }: Props) => {
         // inc -
         // dec +
         question.resetRating(objBody)
-          .then(res => question.loadQuestions())
-          .catch(err => alert('Ошибка2'))
+          .then(res => {
+            console.log(res)
+            question.loadQuestions()
+          })
+          .catch(err => {
+            console.log(err)
+            alert('Ошибка2')
+          })
       }
     } else {
       const ObjBody = {
@@ -71,8 +83,14 @@ const QuestionItem = observer(({ item }: Props) => {
         }
       }
       question.countRating(ObjBody)
-        .then(res => question.loadQuestions())
-        .catch(err => alert('Ошибка3'))
+        .then(res => {
+          console.log(res)
+          question.loadQuestions()
+        })
+        .catch(err => {
+          console.log(err)
+          alert('Ошибка3')
+        })
     }
   }
   const right = () => {
@@ -86,8 +104,14 @@ const QuestionItem = observer(({ item }: Props) => {
           action: "increment"
         }
         question.resetRating(objBody)
-          .then(res => question.loadQuestions())
-          .catch(err => alert('Ошибка'))
+          .then(res => {
+            console.log(res)
+            question.loadQuestions()
+          })
+          .catch(err => {
+            console.log(err)
+            alert('Ошибка')
+          })
       } else if (votedObj.btn.left === 1 && votedObj.btn.right === 0) {
         const objBody = {
           token: user.token,
@@ -97,8 +121,14 @@ const QuestionItem = observer(({ item }: Props) => {
           // dec +
         }
         question.resetRating(objBody)
-          .then(res => question.loadQuestions())
-          .catch(err => alert('Ошибка'))
+          .then(res => {
+            console.log(res)
+            question.loadQuestions()
+          })
+          .catch(err => {
+            console.log(err)
+            alert('Ошибка')
+          })
       }
     } else {
       const ObjBody = {
@@ -113,8 +143,14 @@ const QuestionItem = observer(({ item }: Props) => {
         }
       }
       question.countRating(ObjBody)
-        .then(res => question.loadQuestions())
-        .catch(err => alert('Ошибка'))
+        .then(res => {
+          console.log(res)
+          question.loadQuestions()
+        })
+        .catch(err => {
+          console.log(err)
+          alert('Ошибка')
+        })
     }
   }
 

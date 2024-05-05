@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, ChangeEvent } from 'react';
+import { FormEvent, useState, ChangeEvent } from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { useStores } from '../../root-store-context';
@@ -27,10 +27,14 @@ const RegisterPage = observer(() => {
     console.log('register', value)
     user.register(value)
       .then(res => {
+        console.log(res)
         alert('Зарегистрированы')
         redirect('/profile')
       })
-      .catch(err => alert('Ошибка при регистрации'))
+      .catch(err => {
+        console.log(err)
+        alert('Ошибка при регистрации')
+      })
   };
   return (
     <Container>
