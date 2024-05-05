@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { IQuestions } from '../../store/question-store';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStores } from '../../root-store-context';
 import AnswerItem from './AnswerItem';
@@ -19,22 +19,22 @@ const QuestionItem = observer(({ item }: Props) => {
   //   left: 0,
   //   right: 0
   // })
-  useEffect(() => {
-    const a = item.voted.find(q => q.user === user.user?._id)
-    if (a) {
-      // console.log('a left', a.btn.left)
-      // console.log('a right', a.btn.right)
-      setClick({
-        left: a.btn.left,
-        right: a.btn.right
-      })
-    } else {
-      setClick({
-        left: 0,
-        right: 0
-      })
-    }
-  }, [question.questions, user.user, question.countRating, question.resetRating])
+  // useEffect(() => {
+  //   const a = item.voted.find(q => q.user === user.user?._id)
+  //   if (a) {
+  //     // console.log('a left', a.btn.left)
+  //     // console.log('a right', a.btn.right)
+  //     setClick({
+  //       left: a.btn.left,
+  //       right: a.btn.right
+  //     })
+  //   } else {
+  //     setClick({
+  //       left: 0,
+  //       right: 0
+  //     })
+  //   }
+  // }, [question.questions, user.user, question.countRating, question.resetRating])
 
   const left = () => {
     const votedObj = item.voted.find(q => q.user === user.user?._id)
