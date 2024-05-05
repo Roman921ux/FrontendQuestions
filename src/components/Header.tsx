@@ -7,10 +7,10 @@ const Header = observer(() => {
   const { user } = useStores()
   return (
     <Container>
-      <NavLink to="/profile">Профиль</NavLink>
-      <NavLink to="/">Вопросы</NavLink>
-      <NavLink to="/learning">Изучаю</NavLink>
-      {user.user?.role === 'admin' && <NavLink to="/question">Создать Вопрос</NavLink>}
+      <NavLink to="/profile" style={{ "color": "inherit" }}><Link>Профиль</Link></NavLink>
+      <NavLink to="/" style={{ "color": "inherit" }}><Link>Вопросы</Link></NavLink>
+      <NavLink to="/learning" style={{ "color": "inherit" }}><Link>Мои Вопросы</Link></NavLink>
+      {user.user?.role === 'admin' && <NavLink to="/question" style={{ "color": "inherit" }}><Link>Создать Вопрос</Link></NavLink>}
     </Container>
   );
 })
@@ -18,9 +18,22 @@ const Header = observer(() => {
 export default Header;
 
 const Container = styled.div`
+  border: 2px solid rgba(1,1,1, 0.1); 
+  background-color: #ffffff; /* Цвет фона блока */
+  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); Тень блока */
+  border-radius: 5px;
+
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 5px;
   width: 15%;
-  border: 1px solid red;
+  padding: 15px;
+`;
+
+const Link = styled.div`
+border: 2px solid rgba(1,1,1, 0.1); 
+
+  /* width: 100%; */
+  padding: 10px 0 10px 15px;
+  border-radius: 5px;
 `;

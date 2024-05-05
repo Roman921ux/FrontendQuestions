@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStores } from '../../root-store-context';
 import AnswerItem from './AnswerItem';
+// icons
+import { BiSolidArrowToBottom } from "react-icons/bi";
+import { BiSolidArrowFromBottom } from "react-icons/bi";
 
 interface Props {
   item: IQuestions;
@@ -157,16 +160,20 @@ const QuestionItem = observer(({ item }: Props) => {
   return (
     <Container>
       <FlexBlock>
-        <span onClick={() => setOpen(prev => !prev)}>{item.title}</span>
-        <div>
-          Level: {item.level}<br />
-          Type: {item.type.map(i => <li>{i}</li>)}
-        </div>
-        <div>
-          <span>{item.rating}</span>
-          <button onClick={() => left()} style={click.left === 0 ? { 'background': '#4b4b4b' } : { 'background': '#fff' }}>-</button>
-          <button onClick={() => right()} style={click.right === 0 ? { 'background': '#4b4b4b' } : { 'background': '#fff' }}>+</button>
-        </div>
+        <Title onClick={() => setOpen(prev => !prev)}>{item.title}</Title>
+        <BlockGroup>
+          <Block>
+            <Level>{item.level}</Level>
+            <Block>{item.type.map(i => <Type>{i}</Type>)}</Block>
+          </Block>
+          <BlockRating>
+            <Rating>{item.rating}</Rating>
+            {/* <button onClick={() => left()} style={click.left === 0 ? { 'background': '#4b4b4b' } : { 'background': '#fff' }}>-</button> */}
+            <BiSolidArrowToBottom onClick={() => left()} />
+            <BiSolidArrowFromBottom onClick={() => right()} />
+            {/* <button onClick={() => right()} style={click.right === 0 ? { 'background': '#4b4b4b' } : { 'background': '#fff' }}>+</button> */}
+          </BlockRating>
+        </BlockGroup>
       </FlexBlock>
       {open && <AnswerItem item={item} />}
     </Container>
@@ -176,11 +183,62 @@ const QuestionItem = observer(({ item }: Props) => {
 export default QuestionItem;
 
 const Container = styled.div`
-  border: 1px solid #d88ad8;
+  border: 2px solid rgba(1,1,1, 0.1);
+  border-radius: 5px;
   padding: 15px;
 `;
 
 const FlexBlock = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: self-start;
+`;
+
+const Block = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 2px solid rgba(1,1,1, 0.1);
+  padding: 2px 2px 2px 5px;
+  border-radius: 5px;
+`;
+const BlockGroup = styled.div`
+  display: flex;
+  align-items: self-start;
+  gap: 5px;
+  /* border: 2px solid rgba(1,1,1, 0.1); */
+  padding: 2px 2px 2px 5px;
+  border-radius: 5px;
+`;
+const BlockRating = styled.div`
+  display: flex;
+  align-items: center;
+  border: 2px solid rgba(1,1,1, 0.1);
+  padding: 2px 2px 2px 5px;
+  border-radius: 5px;
+`;
+
+const Rating = styled.div`
+  color: rgba(1,1,1, 0.5);
+  font-size: var(--small-Fs);
+  font-weight: var(--small-W);
+`;
+
+const Level = styled.span`
+  color: rgba(1,1,1, 0.5);
+  font-size: var(--small-Fs);
+  font-weight: var(--small-W);
+  padding: 0 5px;
+`;
+const Type = styled.span`
+  color: rgba(1,1,1, 0.5);
+  font-size: var(--small-Fs);
+  font-weight: var(--small-W);
+  padding: 0 5px;
+`;
+
+const Title = styled.div`
+  color: var(--color-1);
+  font-size: var(--large-Fs);
+  font-weight: var(--large-W);
 `;

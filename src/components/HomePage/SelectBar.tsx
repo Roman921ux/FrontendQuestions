@@ -63,9 +63,16 @@ const SelectBar = observer(() => {
 export default SelectBar;
 
 const Container = styled.div`
-  border: 1px solid red;
+  border: 2px solid rgba(1,1,1, 0.1);
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
 `;
 const SelectWrapper = styled.div`
+border: 2px solid rgba(1,1,1, 0.1);
+  border-radius: 5px;
+  padding-left: 10px; 
   display: flex;
   align-items: center;
   gap: 10px;
@@ -78,9 +85,9 @@ const SelectElement = styled.select`
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 2px solid rgba(1,1,1, 0.1);
   border-radius: 5px;
-  background-color: #595959;
+  background-color: #ffffff;
   color: #000;
   appearance: none;
 `;

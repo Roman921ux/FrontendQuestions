@@ -49,8 +49,8 @@ function App() {
 
 export default App
 
-const Container = styled.div`
-border: 1px solid blue;
+const Container = styled.div` 
+/* border: 1px solid blue; */
   display: flex;
   justify-content: space-between;
   gap: 20px;

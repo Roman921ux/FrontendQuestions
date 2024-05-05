@@ -10,7 +10,7 @@ const HomePage = observer(() => {
 
   useEffect(() => {
     question.loadQuestions()
-  }, [])
+  }, [question.createQuestion, question.questions, question.type, question.level])
 
 
   // const submitType = (select: string) => {
@@ -19,7 +19,9 @@ const HomePage = observer(() => {
   return (
     <Container>
       <SelectBar />
-      {question.selectQuestionsByType.map(item => <QuestionItem item={item} key={item._id} />)}
+      <Block>
+        {question.selectQuestionsByType.map(item => <QuestionItem item={item} key={item._id} />)}
+      </Block>
     </Container>
   );
 })
@@ -27,5 +29,18 @@ const HomePage = observer(() => {
 export default HomePage;
 
 const Container = styled.div`
-  
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+`;
+
+const Block = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 85%;
+  overflow-y: scroll; 
+  padding-right: 15px;
+  /* border: 1px solid red; */
 `;
