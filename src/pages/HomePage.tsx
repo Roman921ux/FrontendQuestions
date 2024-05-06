@@ -1,12 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { useStores } from '../root-store-context';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import SelectBar from '../components/HomePage/SelectBar';
 import QuestionItem from '../components/HomePage/QuestionItem';
 
 const HomePage = observer(() => {
   const { question } = useStores()
+  const [value, setValue] = useState<string>('')
 
   useEffect(() => {
     question.loadQuestions()
@@ -18,9 +19,13 @@ const HomePage = observer(() => {
   // }
   return (
     <Container>
-      <SelectBar />
+      <SelectBar value={value} setValue={setValue} />
       <Block>
-        {question.selectQuestionsByType.map(item => <QuestionItem item={item} key={item._id} />)}
+        {question.selectQuestionsByType.filter(question => {
+          const title = question.title.toLowerCase();
+          const search = value.toLowerCase();
+          return title.includes(search);
+        }).map(item => <QuestionItem item={item} key={item._id} />)}
       </Block>
     </Container>
   );

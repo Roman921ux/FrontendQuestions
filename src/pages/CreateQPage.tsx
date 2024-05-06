@@ -78,51 +78,53 @@ const CreateQPage = observer(() => {
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input type="text" name="title" value={formData.title} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Answer:
-          <SimpleMDE value={value} onChange={onChange} options={options} />
-        </label>
-        <br />
-        <label>
-          Rating:
-          <input type="number" name="rating" value={formData.rating} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Type:
-          <select name="type" value={formSelect} onChange={(e) => setFormSelect(e.target.value)}>
-            <option value="React">React</option>
-            <option value="Web">Web</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="TypeScript">TypeScript</option>
-            <option value="Css">Css</option>
-            <option value="Html">Html</option>
-            {/* Добавьте другие варианты по вашему усмотрению */}
-          </select>
-        </label>
-        <br />
-        <label>
-          Level:
-          <select name="level" value={formData.level} onChange={handleChange}>
-            <option value="Junior">Junior</option>
-            <option value="Middle">Middle</option>
-            <option value="Senior">Senior</option>
-          </select>
-        </label>
-        <br />
-        <label>
-          Complex:
-          <input type="number" name="complex" value={formData.complex} onChange={handleChange} />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <SelectWrapper style={{ "width": "90%" }}>
+          <Title>Вопрос: </Title>
+          <Input style={{ "width": "85%" }}
+            type="text" name="title" value={formData.title} onChange={handleChange} />
+        </SelectWrapper>
+        <SelectWrapper style={{ "alignItems": "self-start", "width": "90%" }}>
+          <Title>Ответ: </Title>
+          <SimpleMDE style={{ "width": "87%" }}
+            value={value} onChange={onChange} options={options} />
+        </SelectWrapper>
+        <Block>
+          <SelectWrapper>
+            <Title>Рейтинг: </Title>
+            <Input type="number" name="rating" value={formData.rating} onChange={handleChange} />
+          </SelectWrapper>
+          <SelectWrapper>
+            <Title>Тип: </Title>
+            <Select name="type" value={formSelect} onChange={(e) => setFormSelect(e.target.value)}>
+              <option value="React">React</option>
+              <option value="Web">Web</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="TypeScript">TypeScript</option>
+              <option value="Css">Css</option>
+              <option value="Html">Html</option>
+              {/* Добавьте другие варианты по вашему усмотрению */}
+            </Select>
+          </SelectWrapper>
+        </Block>
+        <Block>
+          <SelectWrapper>
+            <Title>Уровень: </Title>
+            <Select name="level" value={formData.level} onChange={handleChange}>
+              <option value="Junior">Junior</option>
+              <option value="Middle">Middle</option>
+              <option value="Senior">Senior</option>
+            </Select>
+          </SelectWrapper>
+          <SelectWrapper>
+            <Title>Сложность: </Title>
+            <Input type="number" name="complex" value={formData.complex} onChange={handleChange} />
+          </SelectWrapper>
+        </Block>
+
+
+        <Button type="submit">Submit</Button>
+      </Form>
     </Container>
   );
 })
@@ -130,5 +132,78 @@ const CreateQPage = observer(() => {
 export default CreateQPage;
 
 const Container = styled.div`
-  
+  height: 100%;
+  /* overflow-y: scroll; */
+  /* border: 1px solid red; */
 `;
+const Form = styled.form`
+display: flex;
+flex-direction: column;
+/* gap: 5px; */
+`;
+const Block = styled.div`
+  /* border: 1px solid red; */
+width: 92%;
+display: flex;
+justify-content: space-between;
+/* flex-direction: column; */
+/* gap: 5px; */
+`;
+const SelectWrapper = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  width: 46%;
+  margin-bottom: 15px;
+
+  border: 2px solid rgb(233, 236, 239);
+  color: rgb(111, 112, 114);
+  padding: 5px 5px 5px 10px;
+  border-radius: 5px;
+`;
+const Title = styled.span`
+  font-size: var(--large-Fs);
+  font-weight: var(--large-W);
+`;
+// const Text = styled.span`
+//   font-size: var(--small-Fs);
+//   font-weight: var(--large-W);
+// `;
+const Select = styled.select`
+  width: 200px;
+  padding: 10px;
+  font-size: var(--middle-Fs);
+  border: 2px solid rgba(1,1,1, 0.1);
+  appearance: none;
+
+  border: 2px solid rgb(233, 236, 239);
+  background-color: rgb(233, 236, 239);
+  color: rgb(111, 112, 114);
+  padding: 5px 10px;
+  border-radius: 5px;`
+
+const Input = styled.input`
+  width: 175px;
+  padding: 10px;
+  font-size: var(--middle-Fs);
+  border: 2px solid rgba(1,1,1, 0.1);
+  appearance: none;
+
+  border: 2px solid rgb(233, 236, 239);
+  background-color: rgb(233, 236, 239);
+  color: rgb(111, 112, 114);
+  padding: 5px 10px;
+  border-radius: 5px;`
+
+const Button = styled.button`
+margin-top: 15px;
+width: 92%;
+  padding: 10px;
+  font-size: var(--middle-Fs);
+  border: 2px solid rgba(1,1,1, 0.1);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;`
+

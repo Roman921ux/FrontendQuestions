@@ -26,5 +26,5 @@ const RoleRequire = observer(({ children }: Props) => {
 export default RoleRequire;
 
 const Container = styled.div`
-  
+  height: 100%;
 `;

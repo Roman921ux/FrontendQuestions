@@ -12,9 +12,19 @@ const ProfilePage = observer(() => {
 
   return (
     <Container>
-      Profile
-      <span>Token: {user.token ? 'true' : 'false'}</span>
-      <button onClick={() => user.logOut()}>Выйти</button>
+      <FlexBlock>
+        <Title>Profile</Title>
+        {/* <span>Token: {user.token ? 'true' : 'false'}</span> */}
+        <Button onClick={() => user.logOut()}>Выйти</Button>
+      </FlexBlock>
+      <Block>
+        <Text>FullName:</Text>
+        <Title style={{ "marginLeft": "15px" }}>{user.user?.fullName}</Title>
+      </Block>
+      <Block>
+        <Text>Email:</Text>
+        <Title style={{ "marginLeft": "15px" }}>{user.user?.email}</Title>
+      </Block>
     </Container>
   );
 })
@@ -23,4 +33,28 @@ export default ProfilePage;
 
 const Container = styled.div`
   
+`;
+
+const Button = styled.button`
+  color: #fff;
+`;
+
+const FlexBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const Block = styled.div`
+margin-top: 25px;
+margin-left: 30px;
+
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+`;
+const Title = styled.div`
+  font-size: var(--large-Fs);
+  /* margin-left: 15px; */
+`;
+const Text = styled.div`
+  font-size: var(--small-Fs);
 `;

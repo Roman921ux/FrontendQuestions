@@ -18,4 +18,6 @@ const Container = styled.div`
 
   padding: 10px;
   width: 85%;
+  height: 100%;
+  /* border: 1px solid blue; */
 `;

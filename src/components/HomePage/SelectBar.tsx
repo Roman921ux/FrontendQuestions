@@ -7,9 +7,14 @@ interface Option {
   value: string;
   label: string;
 }
+interface Props {
+  value: string;
+  setValue: (value: string) => void;
+}
 
-const SelectBar = observer(() => {
+const SelectBar: React.FC<Props> = observer(({ value, setValue }) => {
   const { question } = useStores()
+
   const optionsType: Option[] = [
     { value: 'all', label: 'all' },
     { value: 'Web', label: 'Web' },
@@ -56,6 +61,10 @@ const SelectBar = observer(() => {
           ))}
         </SelectElement>
       </SelectWrapper>
+      <SelectWrapper>
+        <span>Поиск: </span>
+        <Input value={value} onChange={(e) => setValue(e.target.value)} />
+      </SelectWrapper>
     </Container>
   );
 })
@@ -78,7 +87,7 @@ const SelectWrapper = styled.div`
   justify-content: space-between;
   gap: 10px;
   position: relative;
-  width: 220px;
+  min-width: 220px;
   margin-bottom: 15px;
 
   border: 2px solid rgb(233, 236, 239);
@@ -89,6 +98,20 @@ const SelectWrapper = styled.div`
 
 const SelectElement = styled.select`
   width: 120px;
+  padding: 10px;
+  font-size: var(--middle-Fs);
+  border: 2px solid rgba(1,1,1, 0.1);
+  appearance: none;
+
+  border: 2px solid rgb(233, 236, 239);
+  background-color: rgb(233, 236, 239);
+  color: rgb(111, 112, 114);
+  padding: 5px 10px;
+  border-radius: 5px;
+`;
+
+const Input = styled.input`
+  width: 200px;
   padding: 10px;
   font-size: var(--middle-Fs);
   border: 2px solid rgba(1,1,1, 0.1);
