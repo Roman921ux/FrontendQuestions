@@ -31,16 +31,17 @@ export default HomePage;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  /* gap: 15px; */
   height: 100%;
 `;
 
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
   max-height: 85%;
   overflow-y: scroll; 
-  padding-right: 15px;
+  padding: 15px 15px 0 15px;
+  /* box-shadow: inset -10px 5px 15px rgba(0, 0, 0, 0.1); */
   /* border: 1px solid red; */
 `;

@@ -18,22 +18,30 @@ const Header = observer(() => {
 export default Header;
 
 const Container = styled.div`
-  border: 2px solid rgba(1,1,1, 0.1); 
-  background-color: #ffffff; /* Цвет фона блока */
-  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); Тень блока */
-  border-radius: 5px;
+  /* border-radius: 5px;
+  border: var(--border-color);
+  box-shadow: var(--box-shadow); */
 
   display: flex;
   flex-direction: column;
   gap: 5px;
   width: 15%;
-  padding: 15px;
+  padding: 10px;
 `;
 
-const Link = styled.div`
-border: 2px solid rgba(1,1,1, 0.1); 
 
-  /* width: 100%; */
-  padding: 10px 0 10px 15px;
+const Link = styled.button`
+  padding: 5px 0 5px 15px;
+  border: var(--border-color);
+  /* box-shadow: var(--box-shadow); */
   border-radius: 5px;
+  width: 100%;
+  display: flex;
+  align-items: self-end;
+  //
+  border: 2px solid rgb(233, 236, 239);
+  background-color: rgb(233, 236, 239);
+  color: rgb(111, 112, 114);
+  font-size: var(--middle-Fs);
+  font-weight: var(--middle-W);
 `;

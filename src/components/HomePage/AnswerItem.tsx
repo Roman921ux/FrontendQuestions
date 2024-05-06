@@ -17,5 +17,8 @@ function AnswerItem({ item }: Props) {
 export default AnswerItem;
 
 const Container = styled.div`
-  
+  margin: 15px;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  border-top: var(--border-color);
 `;

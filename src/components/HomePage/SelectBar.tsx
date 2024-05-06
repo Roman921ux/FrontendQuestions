@@ -63,31 +63,40 @@ const SelectBar = observer(() => {
 export default SelectBar;
 
 const Container = styled.div`
-  border: 2px solid rgba(1,1,1, 0.1);
-  border-radius: 5px;
-  padding: 15px;
   display: flex;
   gap: 15px;
+
+  /* box-shadow: var(--box-shadow);
+  padding: 15px;
+  border: var(--border-color);
+  border-radius: 5px; */
+  border-bottom: var(--border-color);
 `;
 const SelectWrapper = styled.div`
-border: 2px solid rgba(1,1,1, 0.1);
-  border-radius: 5px;
-  padding-left: 10px; 
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   position: relative;
-  width: 200px;
-  margin-bottom: 20px;
+  width: 220px;
+  margin-bottom: 15px;
+
+  border: 2px solid rgb(233, 236, 239);
+  color: rgb(111, 112, 114);
+  padding: 5px 5px 5px 10px;
+  border-radius: 5px;
 `;
 
 const SelectElement = styled.select`
-  width: 100%;
+  width: 120px;
   padding: 10px;
-  font-size: 16px;
+  font-size: var(--middle-Fs);
   border: 2px solid rgba(1,1,1, 0.1);
-  border-radius: 5px;
-  background-color: #ffffff;
-  color: #000;
   appearance: none;
+
+  border: 2px solid rgb(233, 236, 239);
+  background-color: rgb(233, 236, 239);
+  color: rgb(111, 112, 114);
+  padding: 5px 10px;
+  border-radius: 5px;
 `;

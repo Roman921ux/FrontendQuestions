@@ -12,8 +12,10 @@ function Main() {
 export default Main;
 
 const Container = styled.div`
-border: 2px solid rgba(1,1,1, 0.1); 
-  padding: 15px;
-  border-radius: 5px;
+  /* border: var(--border-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 5px; */
+
+  padding: 10px;
   width: 85%;
 `;

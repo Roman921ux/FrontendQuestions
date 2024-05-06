@@ -13,6 +13,7 @@ import RootStore from './store/root-store'
 import AuthRequire from './pages/auth/AuthRequire'
 import CreateQPage from './pages/CreateQPage'
 import RoleRequire from './pages/auth/RoleRequire'
+import TestPage from './pages/TestPage'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               </RoleRequire>
             } />
             <Route path="login" element={<LoginPage />} />
+            <Route path="test" element={<TestPage />} />
             <Route path="register" element={<RegisterPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>

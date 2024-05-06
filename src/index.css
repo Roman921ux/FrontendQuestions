@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jura:wght@700&family=Tac+One&display=swap');
 
 :root {
   --small-Fs: 12px;
@@ -11,11 +11,16 @@
   --color-1: rgba(1, 1, 1, 0.8);
   --color-2: rgba(1, 1, 1, 0.5);
   --color-3: rgba(1, 1, 1, 0.3);
+  /**/
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --border-color: 1px solid rgba(0, 0, 0, 0.15);
+  --dim1-color: rgb(164, 170, 218);
+  --base-color: rgba(27, 27, 27, 0.87);
+  --dim2-color: rgba(27, 27, 27, 0.5);
 
 
 
-  /* font-family: "Oswald", sans-serif; */
-  font-family: "Roboto", sans-serif;
+  font-family: "Jura", sans-serif;
   line-height: 1.5;
   font-size: var(--middle-Fs);
   font-weight: 400;
@@ -47,6 +52,8 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  /**/
+
 }
 
 h1 {
